@@ -2,3 +2,4 @@ python-fasthtml
 uvicorn>=0.29
 google-generativeai
 strip_markdown
+AIzaSyA1D5EJdAu0EVwotN9oD6KpXuTnnW40vTM
