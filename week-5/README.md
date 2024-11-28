@@ -5,6 +5,8 @@ There are two main building blocks that you will work with:
 1. [Jupyter notebook](00_simple_local_rag.ipynb)
 2. [Streamlit UI](pdf_rag_ui.py), which implements the same functionality in a form of an interactive UI
 
+This notebook and code were tested with Python 3.12
+
 # Week's tasks
 You are expected to submit one task (if you like, by all means do and submit more!) from the list below.
 We will discuss these tasks in class, and you can ask your questions to better understand each of them.
@@ -38,9 +40,10 @@ pip install -U sentence-transformers
 pip install PyMuPDF
 ```
 # Streamlit UI setup
-Download model from Hugging Face:
+Download models from Hugging Face:
 ```
 huggingface-cli download sentence-transformers/all-mpnet-base-v2
+huggingface-cli download google/gemma-2b-it
 ```
 
 Download spacy's English model:
@@ -48,4 +51,19 @@ Download spacy's English model:
 python -m spacy download en_core_web_sm
 ```
 
+# PDF RAG UI
+The PDF RAG Demo is a UI application, implemented using streamlit. The core code of RAG is otherwise the same as in the
+jupyter notebook.
+
+Here is how the UI looks like during the Preprocessing phase, triggered by uploading a pdf file.
 ![PDF RAG Demo](img/pdf_rag_ui_preprocessing.png)
+
+Here are two examples of answers we get from the vanilla LLM (Gemma) and from RAG-enhanced LLM (enhancement or
+grounding is done using the original RAG paper: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks".
+
+![vanilla LLM answer](img/vanilla_llm_summarize_paper.png)
+
+![RAG LLM answer](img/rag_summarize_paper.png)
+
+Comparing these two outputs, we can see that RAG-enhanced LLM produces a much more nuanced answer about 
+the key contributions of the paper, while vanilla LLM talks about more generic concepts.
