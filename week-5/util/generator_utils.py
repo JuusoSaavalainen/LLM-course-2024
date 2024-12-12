@@ -2,25 +2,32 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-def load_tokenizer(model_name:str = "google/gemma-2b-it"):
+
+def load_tokenizer(model_name: str = "google/gemma-2b-it"):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     return tokenizer
+
 
 def tokenize_with_chat(tokenizer, query):
     chat = [
         {"role": "user", "content": query},
     ]
-    prompt = tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
-    inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt") #tokenizer(prompt, return_tensors="pt")
+    prompt = tokenizer.apply_chat_template(
+        chat, tokenize=False, add_generation_prompt=True)
+    # tokenizer(prompt, return_tensors="pt")
+    inputs = tokenizer.encode(
+        prompt, add_special_tokens=False, return_tensors="pt")
 
     return inputs, prompt
 
-def load_gemma(mobel_name:str = "google/gemma-2b-it"):
+
+def load_gemma(mobel_name: str = "google/gemma-2b-it"):
     llm_model = AutoModelForCausalLM.from_pretrained(
         mobel_name,
         torch_dtype=torch.bfloat16
     )
     return llm_model
+
 
 def generate_answer(gemma_model, input_ids, tokenizer, prompt):
     outputs = gemma_model.generate(input_ids, max_new_tokens=256)
@@ -28,12 +35,15 @@ def generate_answer(gemma_model, input_ids, tokenizer, prompt):
     return outputs_decoded.replace(prompt, '').replace('<bos>', '').replace('<eos>', '')
 
 # rag
+
+
 def rag_prompt_formatter(tokenizer, query: str, context_items: list[dict]) -> str:
     """
     Augments query with text-based context from context_items.
     """
     # Join context items into one dotted paragraph
-    context = "- " + "\n- ".join([item["sentence_chunk"] for item in context_items])
+    context = "- " + "\n- ".join([item["sentence_chunk"]
+                                 for item in context_items])
 
     # Create a base prompt with examples to help the model
     # Note: this is very customizable, I've chosen to use 3 examples of the answer style we'd like.
@@ -58,22 +68,39 @@ Answer: An instantiation of an Ontology that also contains the things that are r
 User query: {query}
 Answer:"""
 
+    base_prompt_fi = """Annetun kontekstin perusteella vastaa kysymykseen.
+Anna itsellesi tilaa ajatella ja poimia relevantit kohdat ennen vastaamista kysymykseen.
+Älä paljasta ajattelua, vaan vastaa vain kysymykseen.
+Varmista, että vastauksesi ovat mahdollisimman selittäviä.
+Käytä seuraavia esimerkkejä ihanteellisen vastaustyylinä.
+\nEsimerkki 1:
+Kysymys: Kuka on Max Irwin?
+Vastaus: Max on Max.io:n toimitusjohtaja, aiemmin hän työskenteli OpenSource Connectionsilla toimittaen hakuparannuksia ja pitämällä koulutuksia.
+\nEsimerkki 2:
+Kysymys: Mikä on Suomen pääkaupunki?
+Vastaus: Suomen pääkaupunki on Helsinki.
+\nNyt käytä seuraavia kontekstikohtia vastataksesi käyttäjän kysymykseen:
+{context}
+\nRelevantit kohdat: <poimi relevantit kohdat kontekstista tähän>
+Käyttäjän kysymys: {query}
+Vastaus:"""
     # Update base prompt with context items and query
-    base_prompt = base_prompt.format(context=context, query=query)
+    base_prompt = base_prompt_fi.format(context=context, query=query)
 
     # Create prompt template for instruction-tuned model
     dialogue_template = [
         {"role": "user",
-        "content": base_prompt}
+         "content": base_prompt}
     ]
 
     # Apply the chat template
     prompt = tokenizer.apply_chat_template(conversation=dialogue_template,
-                                          tokenize=False,
-                                          add_generation_prompt=True)
+                                           tokenize=False,
+                                           add_generation_prompt=True)
     return prompt
 
-def tokenize_with_rag_prompt(tokenizer, query:str, context_items: list[dict]):
+
+def tokenize_with_rag_prompt(tokenizer, query: str, context_items: list[dict]):
     prompt = rag_prompt_formatter(tokenizer, query, context_items)
     inputs = tokenizer.encode(prompt, add_special_tokens=False,
                               return_tensors="pt")

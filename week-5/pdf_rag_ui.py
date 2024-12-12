@@ -15,7 +15,8 @@ min_token_length = 30
 st.write("Initializing models")
 
 if not get_from_session(st, SESSION_VARS.LOADED_MODELS):
-    nlp = spacy.load("en_core_web_sm") #English()
+    # nlp = spacy.load("en_core_web_sm")  # English()
+    nlp = spacy.load("fi_core_news_sm")  # Finnish
 
     # uncomment this command to print the file location of the Spacy model
     # st.write(nlp._path)
@@ -24,14 +25,21 @@ if not get_from_session(st, SESSION_VARS.LOADED_MODELS):
     nlp.add_pipe("sentencizer")
     put_to_session(st, SESSION_VARS.NLP, nlp)
 
-    embedding_model_cpu = SentenceTransformer(model_name_or_path="models/models--sentence-transformers--all-mpnet-base-v2/snapshots/84f2bcc00d77236f9e89c8a360a00fb1139bf47d",
-                                          device="cpu") # choose the device to load the model to (note: GPU will often be *much* faster than CPU)
+    # load embedding model that supports finnish similarly than other from hf cli
+    embedding_model_cpu = SentenceTransformer(
+        model_name_or_path="/home/saavajuu/.cache/huggingface/hub/models--sentence-transformers--paraphrase-multilingual-MiniLM-L12-v2/snapshots/8d6b950845285729817bf8e1af1861502c2fed0c",
+        device="cpu"  # Use CPU for inference
+    )
+
+    # Store the model in the session
     put_to_session(st, SESSION_VARS.EMBEDDING_MODEL_CPU, embedding_model_cpu)
 
-    # Gemma
-    model = "google/gemma-2b-it"
-    gemma_model = load_gemma(model)
-    tokenizer = load_tokenizer(model)
+    # Correct path for gemma-2b-it model
+    gemma_model_path = "/home/saavajuu/.cache/huggingface/hub/models--google--gemma-2b-it/snapshots/96988410cbdaeb8d5093d1ebdc5a8fb563e02bad"
+
+    # Assuming `load_gemma` and `load_tokenizer` can accept custom paths
+    gemma_model = load_gemma(gemma_model_path)
+    tokenizer = load_tokenizer(gemma_model_path)
 
     put_to_session(st, SESSION_VARS.MODEL, gemma_model)
     put_to_session(st, SESSION_VARS.TOKENIZER, tokenizer)
@@ -82,9 +90,11 @@ if uploaded_file is not None:
             st.write("Loading to a DataFrame")
             df = pd.DataFrame(pages_and_chunks)
             # Let's filter our DataFrame/list of dictionaries to only include chunks with over 30 tokens in length
-            pages_and_chunks_over_min_token_len = df[df["chunk_token_count"] > min_token_length].to_dict(orient="records")
+            pages_and_chunks_over_min_token_len = df[df["chunk_token_count"] > min_token_length].to_dict(
+                orient="records")
             st.write("Embedding")
-            embed_chunks(pages_and_chunks_over_min_token_len, get_from_session(st, SESSION_VARS.EMBEDDING_MODEL_CPU))
+            embed_chunks(pages_and_chunks_over_min_token_len,
+                         get_from_session(st, SESSION_VARS.EMBEDDING_MODEL_CPU))
             st.write("Saving embeddings")
             filename = save_embeddings(pages_and_chunks_over_min_token_len)
 
@@ -94,8 +104,10 @@ if uploaded_file is not None:
     if get_from_session(st, SESSION_VARS.PROCESSED_DATA):
         st.write("Vector Search")
         st.write("Loading embeddings to tensor")
-        tensor, pages_and_chunks = embeddings_to_tensor(get_from_session(st, SESSION_VARS.EMBEDDINGS_FILENAME))
-        scores, indices = retrieve_relevant_resources(query, tensor, get_from_session(st, SESSION_VARS.EMBEDDING_MODEL_CPU), st)
+        tensor, pages_and_chunks = embeddings_to_tensor(
+            get_from_session(st, SESSION_VARS.EMBEDDINGS_FILENAME))
+        scores, indices = retrieve_relevant_resources(
+            query, tensor, get_from_session(st, SESSION_VARS.EMBEDDING_MODEL_CPU), st)
         # Create a list of context items
         context_items = [pages_and_chunks[i] for i in indices]
         # Add score to context item
@@ -109,17 +121,22 @@ if uploaded_file is not None:
                 # Print relevant sentence chunk (since the scores are in descending order, the most relevant chunk will be first)
                 st.write(pages_and_chunks[index]["sentence_chunk"])
                 # Print the page number too so we can reference the textbook further and check the results
-                st.write(f"Page number: {pages_and_chunks[index]['page_number']}")
+                st.write(
+                    f"Page number: {pages_and_chunks[index]['page_number']}")
 
         st.write("You selected:", gen_variant)
         with st.expander(f"Answer for query: {query}"):
             with st.spinner("Generating"):
                 if gen_variant == "vanilla":
-                    input_ids, prompt = tokenize_with_chat(get_from_session(st, SESSION_VARS.TOKENIZER), query)
-                    answer = generate_answer(get_from_session(st, SESSION_VARS.MODEL), input_ids, get_from_session(st, SESSION_VARS.TOKENIZER), prompt)
+                    input_ids, prompt = tokenize_with_chat(
+                        get_from_session(st, SESSION_VARS.TOKENIZER), query)
+                    answer = generate_answer(get_from_session(
+                        st, SESSION_VARS.MODEL), input_ids, get_from_session(st, SESSION_VARS.TOKENIZER), prompt)
                     st.write(answer)
                 elif gen_variant == "rag":
-                    input_ids, prompt = tokenize_with_rag_prompt(get_from_session(st, SESSION_VARS.TOKENIZER), query, context_items)
-                    answer = generate_answer(get_from_session(st, SESSION_VARS.MODEL), input_ids, get_from_session(st, SESSION_VARS.TOKENIZER), prompt)
+                    input_ids, prompt = tokenize_with_rag_prompt(
+                        get_from_session(st, SESSION_VARS.TOKENIZER), query, context_items)
+                    answer = generate_answer(get_from_session(
+                        st, SESSION_VARS.MODEL), input_ids, get_from_session(st, SESSION_VARS.TOKENIZER), prompt)
                     st.write(answer)
         st.success("Done!")
