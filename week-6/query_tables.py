@@ -18,7 +18,7 @@ from llama_index.core import Settings
 # This will expose the api link “http://localhost:5010/api/parseDocument?renderFormat=all” for you to utilize in your code.
 
 # Initialize LLm
-llm = Ollama(model="llama3", request_timeout=60.0)
+llm = Ollama(model="llama3", request_timeout=2000.0)
 
 llmsherpa_api_url = "http://localhost:5010/api/parseDocument?renderFormat=all"
 pdf_url = "https://abc.xyz/assets/91/b3/3f9213d14ce3ae27e1038e01a0e0/2024q1-alphabet-earnings-release-pdf.pdf"
@@ -27,21 +27,32 @@ pdf_reader = LayoutPDFReader(llmsherpa_api_url)
 # Read PDF
 doc = pdf_reader.read_pdf(pdf_url)
 
-# Get data from the Section by Title
-selected_section = None
-for section in doc.sections():
-    if 'Q1 2024 Financial Highlights' in section.title:
-        selected_section = section
-        break
+# Load all sections into a dictionary
+sections = {section.title: section for section in doc.sections()}
 
-# Convert the output in HTML format
-context = selected_section.to_html(include_children=True, recurse=True)
-question = "What was Google's operating margin for 2024"
-resp = llm.complete(
-    f"read this table and answer question: {question}:\n{context}")
-print(resp.text)
+print(sections.keys())
 
-question = "What % Net income is of the Revenues?"
-resp = llm.complete(
-    f"read this table and answer question: {question}:\n{context}")
-print(resp.text)
+# Combine all sections into a single context
+combined_context = "\n".join([section.to_html(
+    include_children=True, recurse=True) for section in sections.values()])
+
+# save the combined text to a file
+# with open("combined_text.txt", "w") as text_file:
+#    text_file.write(combined_context)
+
+
+def ask_question(question):
+    resp = llm.complete(
+        f"Using the following document context, answer the question:\n{combined_context}\nQuestion: {question}")
+    return resp.text
+
+
+question1 = "What was Google's operating margin for 2024?"
+question2 = "What % Net income is of the Revenues?"
+
+# print(ask_question(question1))
+# print(ask_question(question2))
+
+# Test reasoning with table data
+calculation_question = "Sum up the total revenues for Q1 2024."
+print(ask_question(calculation_question))

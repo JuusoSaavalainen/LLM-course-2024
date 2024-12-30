@@ -53,7 +53,7 @@ else:
 print_session(st)
 
 st.title('PDF RAG (Retrieval Augmented Generation) Demo')
-query = st.text_input("Type your query here", "What is signal boosting?")
+query = st.text_input("Type your query here", "Mitä on data fuusio?")
 gen_variant = st.selectbox(
     "Select vanilla LLM or Retrieval Augmented LLM",
     ("vanilla", "rag")

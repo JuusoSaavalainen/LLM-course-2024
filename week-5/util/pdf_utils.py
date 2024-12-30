@@ -36,7 +36,7 @@ def open_and_read_pdf(pdf_path: str) -> list[dict]:
         pages_and_texts.append({
             # "page_number": page_number - 41,  # adjust page numbers since our PDF starts on page 42
             # adjust page numbers since our PDF starts on page 42
-            "page_number": page_number - 4,
+            "page_number": page_number,
             "page_char_count": len(text),
             "page_word_count": len(text.split(" ")),
             "page_sentence_count_raw": len(text.split(". ")),

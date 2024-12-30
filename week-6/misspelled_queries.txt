@@ -1,0 +1,135 @@
+Original Query: restaurants near Central Park
+Misspelled Queries: ['restaurants ner Central Park', 'retstaurants near Centarl Park', 'restaurants nnear Central Park', 'erstaurants ear Central aPrk', 'restaurants neaar Central Park']
+
+Original Query: shortest route to Times Square from JFK Airport
+Misspelled Queries: ['shotrest route to Times Square from JFK Airport', 'shortest route t Times Square from JFK Airport', 'sortest route to Times Square from JFK Airport', 'shortest rooute ot Times Square frm JFK Airport', 'shortest route to Times Squaire from JFK Airport']
+
+Original Query: petrol stations open now in downtown Los Angeles
+Misspelled Queries: ['petrol stations open now in downtown Lo Angeles', 'petrol stations open noo in downtown Los Angeles', 'petrol stations open now in downtown Los AAngeles', 'petvrol stations open now in downtown Los Angeles', 'perol stations open now in downtown Los Angeles']
+
+Original Query: walking directions to Eiffel Tower from Louvre Museum
+Misspelled Queries: ['walhking directiones to Eiffel Tower from Louvre Museum', 'walkirng directions to Eiffel Tower from Louvre Museum', 'walking directions to Eiffel Tower from oLuvre Museum', 'walknig directions to Eifel Tower from Louvre Museum', 'wlaking directions to Eiffel Tower fromm Louvre Museum']
+
+Original Query: nearest hiking trails in Yosemite National Park
+Misspelled Queries: ['nearest hiking trails ni fYosemite Nationaal Park', 'nearest hiking trals in Yovsemite National Park', 'vnearest hiking trails in Yosemite National Park', 'neares hiking trails in Yosemite National Park', 'neacrest hiking trails in Yosemite National Park']
+
+Original Query: software engineer jobs in San Francisco
+Misspelled Queries: ['sotware engineer jobs ni San Francisco', 'software engiener jobs in Sdan Fracnisco', 'software engineerr jobs in Sa Franciscoo', 'softwae engineer jobs in San Franciso', 'software engineer jbs in San Francisco']
+
+Original Query: remote work opportunities in marketing
+Misspelled Queries: ['remote wrk opportunities in marketing', 'remote work opportunties in marekting', 'remot wowrk opportunities in marketinng', 'remmote work opportunities in marketing', 'remotee work opportunities in marketing']
+
+Original Query: freelance graphic design projects for beginners
+Misspelled Queries: ['freeelance grphic design projects for beginners', 'frerelance graphic design projects for beginners', 'freelance graphic deisgn projects for beginners', 'freelance graphic design projects fpor beginners', 'freelnce graphic design projects for beginners']
+
+Original Query: data scientist positions at Google
+Misspelled Queries: ['ata scientist positions at Google', 'dtata scientisst positions at Google', 'ddata scieuntist positions at Google', 'data scientist positions ta Google', 'tdata sceintist positoins at Google']
+
+Original Query: entry-level mechanical engineering jobs in Austin
+Misspelled Queries: ['entry-level meachanical engineering jobs in Austin', 'enry-level mechanical engineering jobs in Austin', 'entry-level mechanical engineering jobs in Austi', 'entry-level mechanical engineering jobs ijn Austin', 'entry-level mechanical ejngineering jobs in Austin']
+
+Original Query: cheap flights from New York to London
+Misspelled Queries: ['cheap flights from New Yrok to London', 'cheap fligths from New York o London', 'cheap flights from Neew York to London', 'cheap flights from w York to Londo', 'cheap flights frm eNw York ot London']
+
+Original Query: nonstop flights to Tokyo from Los Angeles
+Misspelled Queries: ['nonstop flights to Tokdyo fro Los Angeels', 'nonstop flights to Tokyo frocm Los Angeles', 'nonstop flights tto Tokyo from Los Angeles', 'nonstop flights to Tokyo from Ls Angeles', 'nonstop fflights to Tokyo from Los Angeles']
+
+Original Query: business class deals to Paris in December
+Misspelled Queries: ['busienss class deals to Paris in Decembear', 'business clss deals to Paris n December', 'business class deals to Paris on December', 'business class deals o Paris in Decembear', 'business class eals to Paris tin December']
+
+Original Query: flights under $500 to Hawaii in January
+Misspelled Queries: ['flights undeer $500 ot Hawaii in January', 'flights undaer 5$00 tto Hawaii in January', 'flights under $050 o Hawaii in January', 'flights under $500 to Hawaii ni January', 'flights undder $500 to Hawaii in January']
+
+Original Query: flight schedules for Delta Airlines to Chicago
+Misspelled Queries: ['flight schedxules fogr Delta Airlines to Chicago', 'flight schedules for Delta Airlines ot Chicago', 'flight schedules for Delta Airlines to Cchiago', 'flight schedules fo Delta Airlines to Chicago', 'flight schedules for Dleta Airlines to Chicago']
+
+Original Query: best laptops under $1000
+Misspelled Queries: ['clbest laptops under $1000', 'best laptops undr $11000', 'best lapttops under $1000', 'best laptops undeer $1000', 'best laptops udner $1000']
+
+Original Query: organic skincare products with good reviews
+Misspelled Queries: ['organic skincare products with good revviews', 'organic skincare products wtih good reviews', 'organic skincare productss with good reviews', 'organic skincare products wittth good reviews', 'organic skicare products with good reviews']
+
+Original Query: discounted furniture for small apartments
+Misspelled Queries: ['discounted furniture for mall apartments', 'discounted furniture or small apartments', 'discouted furniture fo small apartments', 'discounted furniture ffor small apartments', 'discounted furrniture for small apartments']
+
+Original Query: latest iPhone models with trade-in offers
+Misspelled Queries: ['latest iPhone models with trade-in eofferrs', 'altest iPhone models with trade-in offers', 'latekst iPhone models with trade-in offers', 'lattest iPhone models with trade-fin offers', 'ltaest iPhone modesl wtih trade-in offers']
+
+Original Query: top-rated noise-cancelling headphones
+Misspelled Queries: ['top-rated noise-ccancelling headphones', 'top-rated noisec-ancelling eadphnoes', 'otp-rated noise-cancelling headphoones', 'top-rated noise-cancelling hleahdpones', 'topi-rated noise-cancelling headphones']
+
+Original Query: yoga classes near me
+Misspelled Queries: ['yga classes near mde', 'yoga classes neaar me', 'yoga classees near e', 'yoga classees nea me', 'oyga calsses near me']
+
+Original Query: gyms with personal trainers in Miami
+Misspelled Queries: ['gyms with personal trainers iin Miami', 'gyms with peronal trainers in Miami', 'gyms with personal trainers ibnn Mimai', 'gyms wiht personal trainers in Miami', 'gyms with personal trainers in Miiami']
+
+Original Query: low-carb meal prep ideas for weight loss
+Misspelled Queries: ['low-carbb meal pevp ideas for weight loss', 'low-carb meal pep ideas for weight loss', 'low-carb meal rpep ideass for weight loss', 'low-carb meal pmrep ideas fo weight loss', 'llow-carb mae prep ideas for weight loss']
+
+Original Query: home remedies for back pain relief
+Misspelled Queries: ['home remedies for pback pain rlief', 'home remedies fo back pain relief', 'ohme remedies for back pain relief', 'home remedies faor back pain relief', 'home remedfies for back pain relief']
+
+Original Query: best running shoes for flat feet
+Misspelled Queries: ['best running shoes foor falt feet', 'best running sohes for flat feet', 'best running shoes fo flat feet', 'best runnning shoes for flat feet', 'best running shoes for falt fee']
+
+Original Query: movies playing near me this weekend
+Misspelled Queries: ['omvies playing anear me this weekend', 'movies playng near me this weekend', 'movies playing near me this weeken', 'ovies playing near me thiis weekend', 'movies splaying near me this weekend']
+
+Original Query: top-rated fantasy novels of 2024
+Misspelled Queries: ['top-rated fantasy gnovels of 2024', 'top-rated fantasy novlls of 2p024', 'top-rated fantasy novels of 2g024', 'bto-rated fantasy novels of 2024', 'top-rated fantasy nvels of 2024']
+
+Original Query: concerts in Chicago this month
+Misspelled Queries: ['concets in Chicago this month', 'concerts in Chhicago this monh', 'concerts in Chicago tis month', 'concerts in Chicago thsi month', 'concerts in Chicago this monsth']
+
+Original Query: free streaming platforms for documentaries
+Misspelled Queries: ['free streaming platforms for documentarie', 'frree streaming platforms foor documentaries', 'free streaming platforrms for documentaries', 'free streaming platforms ofr documentaries', 'free streaminng platforms for documentaries']
+
+Original Query: latest episodes of Stranger Things
+Misspelled Queries: ['latest episodees jof Strranger Things', 'ltaest episodes of Stranger Things', 'latets episodes of Stranger Tihngs', 'llatest episodes of Stranger Things', 'latest episodes of Stranger Thing']
+
+Original Query: best hotels in Bali for families
+Misspelled Queries: ['best hotels in Bali for famiilies', 'set hotels in Bali for families', 'best hotels in Balii for families', 'best hotels in Bali fdor faamilies', 'best hoctels in Bali fdor families']
+
+Original Query: top-rated attractions in Rome
+Misspelled Queries: ['top-rated attractions pin Rome', 'top-rated attractions in Rlome', 'top-rated attractions in Roxe', 'top-rated attractions in Romee', 'top-ratied attractions in Rome']
+
+Original Query: all-inclusive resorts in the Caribbean
+Misspelled Queries: ['ll-inclusive resorts i tthe Caribbean', 'all-inclusive reesorts in the Caribban', 'all-inclusive resortss in the Caribbean', 'all-inclusive resorts in teh Caribbeann', 'all-inclusive resorts kin te aribbean']
+
+Original Query: visa requirements for US citizens visiting Canada
+Misspelled Queries: ['vias requiremfents for US ctizens visiting Canada', 'visa requirements for US citizenns visiting Canada', 'visa requireents for US citizens visiting Canada', 'visa requirements folr US citizens visitinng Canada', 'visa requirements for US citizns visiting Canada']
+
+Original Query: weather forecast for Cancun next week
+Misspelled Queries: ['weather forecast fo Cacun next week', 'weather forecastt for Cancun next week', 'weather forecast for Cancun ext week', 'weather forceast for Cancun next lweek', 'weather forecast for Cancun next wkeek']
+
+Original Query: history of the Great Wall of China
+Misspelled Queries: ['history of the Great Wall of Chian', 'histroy f the Great Wall of Cihna', 'history of thhe Great Wall of China', 'history of the Great Wall zof China', 'history ff the Great Wall of China']
+
+Original Query: how to solve quadratic equations
+Misspelled Queries: ['how to solve quadratic equationss', 'how to solve quadratic eqations', 'how too solve quadratic equattions', 'hhow to solve quadratic equations', 'how to solve quadratic equatin']
+
+Original Query: current events in the Middle East
+Misspelled Queries: ['currenqt events in qthe Middle East', 'curreent events in te Middle East', 'current events in the Midddle East', 'current events in the Middle Easst', 'currrent eventss in the Middle East']
+
+Original Query: free online courses for Python programming
+Misspelled Queries: ['ree online courses for Python programming', 'fere online courses for Python progwramming', 'free onlnie courses for Python programming', 'free onlinee courses fr Python programming', 'free online courses for Python programing']
+
+Original Query: most famous paintings by Van Gogh
+Misspelled Queries: ['most famous paintings by Van Ggoh', 'mst famous paintings by Van Gogh', 'most famous paintings by Vann Gogh', 'most famous paintings bby Van Gogh', 'mmsot famous paintings y Van Gogh']
+
+Original Query: plumbers near me with good reviews
+Misspelled Queries: ['plumbers near mee with good reviews', 'plumbers near me with good rviews', 'plumbers near me cwith good reviews', 'plumbers nea me with good revews', 'plumbers near me with goood reeviews']
+
+Original Query: 24-hour pharmacies in Boston
+Misspelled Queries: ['244-hour pharmacies in Boston', 'g2-4hour pharmacies in Boston', '24-jhour phamracies in Boston', '24-hour pharmacies in Bosston', '24-hour pharrmacies in Boston']
+
+Original Query: car repair shops in San Diego
+Misspelled Queries: ['car repair shxops in San Diego', 'cgar repair shops min San Diego', 'car repair shops iin San Diego', 'car repair shops in San Dieggo', 'car repair shops in San Digeo']
+
+Original Query: affordable wedding photographers in New York
+Misspelled Queries: ['affordable wedding photographeers in New York', 'affordable wedding photographers ni New York', 'affordable wdding photographers in New York', 'affordable wvedding photographers in New Yorqk', 'affordable weding photographers i New Yoork']
+
+Original Query: dog groomers open on Sundays
+Misspelled Queries: ['dog gromers open on Sundays', 'dog gjroomers open on Sundays', 'djog grdoomers open on Sundays', 'dog groomerrs open on Sundays', 'wdog groomers open on Sundays']
+
