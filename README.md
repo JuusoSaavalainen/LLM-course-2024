@@ -2,6 +2,7 @@
 
 **THIS REPOSITORY WILL EVOLVE OVER THE DURATION OF THE COURSE. WE WILL ADD CONTENT AS WE GO.**
 
+ > [My final report](https://github.com/JuusoSaavalainen/LLM-course-2024/blob/main/LLMS_NLP-4.pdf)
 
 **Time:** Fall 2024 / Period 2\
 **Target group:** Master's students\
